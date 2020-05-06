@@ -12,7 +12,7 @@ import cv2
 import os
 
 # Initialize variables
-EPOCHS = 2
+EPOCHS = 4
 INIT_LR = 1e-3
 BS = 32
 num_classes = 2
@@ -23,11 +23,11 @@ data = []
 labels = []
 
 # Load data and labels
-imagePaths = sorted(list(paths.list_images("dataset")))[:1000]
+imagePaths = sorted(list(paths.list_images("dataset")))
 random.seed(42)
 random.shuffle(imagePaths)
 
-for imagePath in imagePaths:
+for imagePath in imagePaths[:1000]:
     # Load image
     image = cv2.imread(imagePath)
     image = cv2.resize(image, (224,224))
